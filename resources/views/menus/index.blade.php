@@ -29,6 +29,11 @@
                         <td>
                             <a href="{{ route('menus.show', ['menu' => $menu->id]) }}" class="btn btn-info btn-sm">Show</a>
                             <a href="{{ route('menus.edit', ['menu' => $menu->id]) }}" class="btn btn-warning btn-sm">Edit</a>
+                            <form action="{{ route('menus.destroy', ['menu' => $menu->id]) }}" method="POST" class="d-inline-block">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach
